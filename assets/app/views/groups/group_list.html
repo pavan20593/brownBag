@@ -1,0 +1,91 @@
+
+<div class="page-content"> 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="portlet light ">
+        <div class="portlet-title">
+          <div class="caption font-dark">
+            <i class="icon-home font-dark"></i>
+            <span class="caption-subject bold uppercase">Group List</span>
+          </div>
+          <div class="tools"> 
+          </div>
+        </div>
+        <div class="portlet-body">
+          <div class="table-toolbar">
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="row">
+                  <form>
+                    <div class="col-lg-3 col-sm-3 col-xs-6 mobile-width">
+
+
+                     <section class="input-group offerstartdate" style="margin-bottom:15px;">
+                       <div class="input-group-addon"><a ng-click="openFrom($event)"><i class="fa fa-calendar"></i></a></div>
+                       <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" is-open="status.opened1" min-date="startDate" max-date="minDate" datepicker-mode="day" show-weeks="false" clear-text="false" show-button-bar="false" name="fromDate" ng-model="vm.createdAt" placeholder="From Date" ng-init="today() | date:'YYYY-MM-DD'" value="today() | date:'YYYY-MM-DD'"/>
+                     </section>
+
+
+
+
+                   </div>
+                   <div class="col-lg-3 col-sm-3 col-xs-6 mobile-width">
+                    <select class="form-control" id="form_control_1" hint="select company" ng-model="vm.companyId" ng-options="companyDetail.id as companyDetail.companyName for companyDetail in vm.getCompanyDetails">
+                      <option value="">select</option>
+
+                      <span class="input-group-btn">
+                        <i class="icon-user"></i>
+                      </span>
+                    </select>
+                    <div class="form-control-focus"> </div>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 apply-filter-btn">
+                      <button id="sample_editable_1_new" class="btn sbold green" ng-click="vm.getGroupList(vm.createdAt,vm.companyId)">Apply
+                      </button> &nbsp;
+                       <button id="sample_editable_1_new" class="btn sbold green" ng-click="vm.clearFilter()">Clear
+                      </button>
+                  </div>
+                  
+                </form>
+
+                <hr>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div class="dataTables_wrapper no-footer">
+          <table class="table table-stripped table-bordered dataTable"  dataTable="ng" id="sample_1" >
+            <thead>
+              <!-- <th style="width:35%">Group ID</th> -->
+              <th style="width:35%"> company </th>
+              <th style="width:10%"> Time Slot </th>
+              <th style="width:10%"> Date </th>
+              <th style="width:20%">Action </th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="group in vm.groups">
+                <!-- <td> {{group.groupId}} </td> -->
+                <td> {{group.companyName}}</td>
+                <td> {{group.timeslot}}</td>
+                <td> {{group.createdAt | date:'yyyy-MM-dd'}}</td>
+                <td> <button type="button" ng-click="vm.viewGroupDetail(group.userDetails)" class="btn blue"><em class="fa fa-infor"></em>Details</button>
+
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!--GROUP DETAIL - MODAL BEGINS -->
+
+
+
+        <!--GROUP DETAIL - MODAL ENDS-->
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>

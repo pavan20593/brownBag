@@ -1,0 +1,34 @@
+
+<div class="modal-header portlet-title">
+  <button type="button" class="close" aria-hidden="true" ng-click="$close()">&times;</button>
+  <div class="caption font-dark">
+    <span class="caption-subject bold uppercase"> Group Detail</span>
+  </div>
+</div>
+<div class="modal-body">
+ <div class="portlet light accordian-body inner-datatable" id="demo1">
+  <div class="portlet-body custom-portlet">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Users </th>
+          <th> Designation </th>
+          <th> User Image </th>
+        </tr>
+      </thead>     
+      <tbody>
+        <tr ng-repeat="userdetail in vm.userDetails">
+          <td> {{userdetail.fullName}}</td>
+          <td> {{userdetail.designation}} </td>
+          <td>  <div class="user-img-holder"><img ng-src="{{userdetail.profilePic}}" alt="user Image" width="50px" height="50px"> </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<div class="modal-footer col-center">
+  <button type="button" class="btn btn-primary" ng-click="$close()">OK</button>
+</div>
+
+

@@ -1,0 +1,56 @@
+
+ <!--  <link href="../../../assets/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" /> -->
+ 
+
+        <div class="page-content">
+          <!-- BEGIN PAGE HEADER-->
+          <!-- BEGIN THEME PANEL -->
+          <div class="row">
+            <div class="col-md-12">
+              <!-- BEGIN SAMPLE FORM PORTLET-->
+              <div class="portlet light ">
+                <div class="portlet-title">
+                  <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase"> Settings</span>
+                  </div>
+                  <div class="actions">
+
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                  </div>
+                </div>
+
+                <!-- <div class="well">Proximity- {{vm.proximity}}</div> -->
+
+                <div class="portlet-body form">
+                  <form role="form" class="form-horizontal" name="addSettings" ng-submit="vm.addSettings(proximity)" novalidate>
+                    <div class="form-body">
+                      <div class="form-group form-md-line-input has-success" ng-class="{'has-error': addSettings.proximityValue.$invalid && !addSettings.proximityValue.$pristine}">
+                        <label class="col-md-2 control-label" for="form_control_1">Proximity for General Users * :</label>
+                        <div class="col-md-10">
+                          <input type="number" class="form-control" id="form_control_1" name="proximityValue" placeholder="Enter Proximity for General Users" required="required" ng-model="vm.proximity">
+                          <div class="form-control-focus"> </div>
+                          <span class="help-block" ng-if="!addSettings.proximityValue.$pristine && addSettings.proximityValue.$invalid" ng-messages="addSettings.proximityValue.$error">Please Enter a valid Proximity Value</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-actions">
+                      <div class="row">
+                        <div class="col-md-offset-2 col-md-10">
+                          <button type="button" class="btn blue" ng-disabled="addSettings.$invalid" ng-click="vm.addSettings(vm.proximity)">Save</button>
+                          <!-- <button type="button" class="btn default">Cancel</button> -->
+
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- END SAMPLE FORM PORTLET-->
+            </div>
+          </div>
+
+        </div>
+      
+
+    

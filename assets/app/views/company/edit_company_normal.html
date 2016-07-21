@@ -1,0 +1,102 @@
+<!-- BEGIN CONTENT BODY -->
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN THEME PANEL -->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption font-green-haze">
+                        <i class="icon-settings font-green-haze"></i>
+                        <span class="caption-subject bold uppercase"> Edit Company</span>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form role="form" class="form-horizontal" ng-submit="vm.editCompany(vm.companyDetails)" name="editCompanyForm" novalidate>
+                        <div class="form-body">
+                            <div class="form-group form-md-line-input has-success" ng-class="{'has-error': editCompanyForm.companyName.$invalid && !editCompanyForm.companyName.$pristine}">
+                                <label class="col-md-2 control-label" for="form_control_1">Company Name * :</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="form_control_1" name="companyName" required="required" ng-model="vm.companyDetails.companyName">
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block" ng-if="!editCompanyForm.companyName.$pristine && editCompanyForm.companyName.$invalid" ng-messages="editCompanyForm.companyName.$error">help text..</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input has-success" ng-class="{'has-error': editCompanyForm.companyDomainName.$invalid && !editCompanyForm.companyDomainName.$pristine}">
+                                <label class="col-sm-2 control-label" for="form_control_1">Company Email Domain Name * :</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group" data-toggle="tooltip" title="Example : @google.com / @google.co.in" style="width:100%;">
+                                        <input type="text" class="form-control" id="form_control_1" name="companyDomainName" required="required" ng-model="vm.companyDetails.domain">
+                                    </div>
+                                    <div class="form-control-focus"></div>
+                                    <span class="help-block" ng-if="editCompanyForm.companyDomainName.$invalid" ng-messages="editCompanyName.companyDomainName.$error">Please enter a valid Domain Name</span>
+                                </div>
+                                <div class="md-checkbox col-sm-2">
+                                    <input type="checkbox" id="checkbox30" name="normalCheck" class="md-check" ng-checked="vm.companyDetails.isActive" ng-model="vm.companyDetails.isActive">
+                                    <label for="checkbox30">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span>Active</label>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group form-md-line-input has-success" ng-class="{'has-error': editCompanyForm.companyDomainName.$invalid && !editCompanyForm.companyDomainName.$pristine}">
+                        <label class="col-sm-2 control-label" for="form_control_1">Company Email Domain Name * :</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="form_control_1" name="companyDomainName" required="required" ng-model="vm.companyDetails.domain">
+                          <div class="form-control-focus"> </div>
+                          <span class="help-block" ng-if="!editCompanyForm.companyDomainName.$pristine && editCompanyForm.companyDomainName.$invalid" ng-messages="editCompanyForm.companyDomainName.$error">help text..</span>
+                        </div>
+                        <div class="md-checkbox col-sm-2">
+                          <input type="checkbox" id="checkbox30" name="normalCheck" class="md-check" ng-checked="vm.companyDetails.isActive"  ng-model="vm.companyDetails.isActive">
+                          <label for="checkbox30">
+                            <span></span>
+                            <span class="check"></span>
+                            <span class="box"></span>Active</label>
+                          </div>
+                        </div> -->
+                            <div class="form-group form-md-line-input has-success" ng-class="{'has-error':editCompanyForm.mode.$invlaid}">
+                                <label class="col-md-2 control-label" for="form_control_1">Mode * :</label>
+                                <div class="md-radio col-xs-4 col-xs-offset-1">
+                                    <input type="radio" id="radio50" name="radio211" class="md-radiobtn" ng-checked="vm.companyDetails.mode=='normal'" ng-model="vm.companyDetails.mode" disabled="disabled">
+                                    <label for="radio50">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Normal Mode</label>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input has-success" ng-class="{'has-error':editCompanyForm.locationProximity.$invalid && !editCompanyForm.locationProximity.$pristine}">
+                                <label class="col-md-2 control-label" for="form_control_1">Location Proximity * :</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="form_control_1" name="locationProximity" required="required" ng-model="vm.companyDetails.proximity">
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block" ng-if="!editCompanyForm.locationProximity.$pristine && editCompanyForm.locationProximity.$invalid" ng-message="editCompanyForm.locationProximity.$error">help text..</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input has-success" ng-class="{'has-error':editCompanyForm.MaxPersons.$invalid && !editCompanyForm.MaxPersons.$pristine}">
+                                <label class="col-md-2 control-label" for="form_control_1">Max Person(s) / Group * :</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="form_control_1" name="MaxPersons" required="required" ng-model="vm.companyDetails.thresholdPerGroup">
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block" ng-if="!editCompanyForm.MaxPersons.$pristine && editCompanyForm.MaxPersons.$invalid" ng-message="editCompanyForm.MaxPersons.$error">help text..</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <button type="button" class="btn blue" ng-disabled="editCompanyForm.$invalid" ng-click="vm.editCompany(vm.companyDetails)">Save</button>
+                                    <button type="button" class="btn default" ng-click="vm.goToCompanyList()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END SAMPLE FORM PORTLET-->
+        </div>
+    </div>
+</div>

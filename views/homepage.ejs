@@ -1,0 +1,12 @@
+  <!-- NAVIGATION -->
+  <div data-ng-include="'app/views/common/header/header.html'" style="width:100%;"></div>
+  <div class="clearfix"> </div>
+  <!-- MAIN CONTENT -->
+  <div class="page-container" style="margin-top:49px">
+    <div data-ng-include="'app/views/common/sidebar/sidebar.html'"></div>
+    <div class="page-content-wrapper">
+      <div ui-view></div>
+    </div>
+  </div>
+
+  <div data-ng-include="'app/views/common/footer/footer.html'" class="page-footer" style="bottom:0;"></div>

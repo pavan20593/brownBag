@@ -1,0 +1,127 @@
+
+<!-- BEGIN CONTENT BODY -->
+<div class="page-content">
+  <!-- BEGIN PAGE HEADER-->
+  <!-- BEGIN THEME PANEL -->
+  <div class="row">
+    <div class="col-md-12">
+      <!-- BEGIN SAMPLE FORM PORTLET-->
+      <div class="portlet light ">
+        <div class="portlet-title">
+          <div class="caption font-green-haze">
+            <i class="icon-settings font-green-haze"></i>
+            <span class="caption-subject bold uppercase"> Add Company</span>
+          </div>
+          <div class="actions">
+
+            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+          </div>
+        </div>
+        <div class="portlet-body form">
+          <form role="form" class="form-horizontal" name="addCompanyForm" ng-submit="vm.addCompany(companyDetails)" novalidate>
+
+            <div class="form-body">
+              <div class="form-group form-md-line-input has-success" ng-class="{'has-error': addCompanyForm.companyName.$invalid && !addCompanyForm.companyName.$pristine}">
+                <label class="col-md-2 control-label" for="form_control_1">Company Name * :</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" id="form_control_1" name="companyName" placeholder="Enter your company name" required="required" ng-model="companyDetails.companyName">
+                  <div class="form-control-focus"> </div>
+                  <span class="help-block" ng-if="!addCompanyForm.companyName.$pristine && addCompanyForm.companyName.$invalid" ng-messages="addCompanyForm.companyName.$error">Please Enter a valid Company Name</span>
+                </div>
+              </div>
+
+              <div class="form-group form-md-line-input has-success" ng-class="{'has-error':addCompanyForm.CompanyDomainName.$invalid && addCompanyForm.CompanyDomainName.$dirty}">
+                <label class="col-sm-2 control-label" for="form_control_1">Company Email Domain Name * :</label>
+                
+                <div class="col-sm-8">
+
+                  <div class="input-group" data-toggle="tooltip" title="Example : @google.com / @google.co.in">
+                    <span class="input-group-addon" style="background-color:#c2cad8">
+                    <i class="fa fa-at" style="color:#000;"></i>
+                    </span>
+                    <input type="text" class="form-control" id="form_control_1" name="CompanyDomainName" placeholder=" Enter your email domain name" 
+                    ng-pattern="/^\w+\.[a-zA-Z]+|\w+\.[a-zA-Z]+\.[a-zA-Z]+$/" required="required" ng-model="companyDetails.domain">
+
+                  </div>
+
+                  <div class="form-control-focus"></div>
+                  <span class="help-block" ng-if="addCompanyForm.companyDomainName.$invalid" ng-messages="addCompanyName.companyName.$error">Please enter a valid Domain Name</span>
+                  
+                </div>
+                <div class="md-checkbox col-sm-2">
+                  <input type="checkbox" id="checkbox30" name="normalCheck" class="md-check" ng-init="companyDetails.isActive=true" ng-model="companyDetails.isActive" >
+                  <label for="checkbox30">
+                    <span></span>
+                    <span class="check"></span>
+                    <span class="box"></span>Active</label>
+                  </div>
+                </div>
+
+                <div class="form-group form-md-line-input has-success">
+                  <label class="col-md-2 control-label" for="form_control_1">Mode:</label>
+
+
+                  <div class="md-radio col-xs-4 col-xs-offset-1">
+                    <input type="radio" id="radio50" name="mode" class="md-radiobtn" ng-init="companyDetails.mode='normal'" ng-checked="true" ng-model="companyDetails.mode" disabled="disabled">
+                    <label for="radio50">
+                      <span></span>
+                      <span class="check"></span>
+                      <span class="box"></span> Normal Mode
+                    </label>
+                  </div>
+
+
+                </div>
+
+                <div class="form-group form-md-line-input has-success" ng-class="{'has-error':addCompanyForm.locationProximity.$invalid && !addCompanyForm.locationProximity.$pristine}">
+                  <label class="col-md-2 control-label" for="form_control_1">Location Proximity * :</label>
+                  <div class="col-md-10">
+                    <div class="input-group" >
+                      
+                      <input type="number" class="form-control" id="form_control_1" name="locationProximity" placeholder="Enter the Proximity value " required="required" ng-model="companyDetails.proximity">
+                      <span class="input-group-addon" style="background-color:#c2cad8">
+                      <strong style="color:#000">K M</strong>
+                      </span>
+
+                    </div>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block" ng-if="!addCompanyForm.locationProximity.$pristine && addCompanyForm.locationProximity.$invalid" ng-message="addCompanyForm.locationProximity.$error">Please enter a valid Proximity </span>
+                   
+                  </div>
+
+                </div>
+
+
+
+                <div class="form-group form-md-line-input has-success" ng-class="{'has-error':addCompanyForm.maxPersons.$invalid && !addCompanyForm.maxPersons.$pristine}">
+                  <label class="col-md-2 control-label" for="form_control_1">Max Person(s) / Group * :</label>
+                  <div class="col-md-10">
+                    <input type="number" class="form-control" id="form_control_1" name="maxPersons" placeholder="Enter Maximum number of persons in a group" ng-pattern="/^[0-9]+$/" required="required" ng-model="companyDetails.thresholdPerGroup" autocomplete="off">
+                    <div class="form-control-focus"> </div>
+                   <span class="help-block" ng-if="!addCompanyForm.maxPersons.$pristine && addCompanyForm.maxPersons.$invalid" ng-message="addCompanyForm.maxPersons.$error">Please enter a valid Proximity </span>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="form-actions">
+                <div class="row">
+                  <div class="col-md-offset-2 col-md-10">
+                    <button type="button" class="btn blue" ng-disabled="addCompanyForm.$invalid" ng-click="vm.addCompany(companyDetails)">Save</button>
+                    <button type="button" class="btn default"  ui-sref="companyList">Cancel</button>
+
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- END SAMPLE FORM PORTLET-->
+      </div>
+    </div>
+
+  </div>
+
+
+
+
